@@ -1,7 +1,8 @@
+import { env } from '~/env.mjs'
 export const emailConfig = {
-  from: 'hi@cali.so',
+  from: env.NEXT_PUBLIC_SITE_EMAIL_FROM,
   baseUrl:
-    process.env.VERCEL_ENV === 'production'
-      ? `https://cali.so`
-      : 'http://localhost:3000',
+  env.VERCEL_ENV === 'production'
+  ? env.NEXT_PUBLIC_SITE_URL
+  : 'http://localhost:3000',
 }
