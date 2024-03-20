@@ -1,7 +1,5 @@
 ## 我的个人网站
 
-修改自 [https://cali.so/](https://cali.so/) 的源代码。
-
 需要其他服务商的环境变量才能正常运行，所以如果你想要在本地运行，需要自己配置。
 
 可查看 `.env.example` 文件，里面包含了所有需要的环境变量。
@@ -21,9 +19,6 @@
 - [React Email](https://react.email)
 - [Resend](https://resend.com/)
 
-### 教程
-
-想部署成自己的网站？可以查看 Cali 的[官方教程](https://cali.so/blog/guide-for-cloning-my-site)
 
 ### 本地开发
 
