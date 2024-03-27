@@ -45,7 +45,6 @@ export default function CreateNewsletterPage() {
       from: emailConfig.from,
       to: env.SITE_NOTIFICATION_EMAIL_TO ?? [],
       reply_to: emailConfig.from,
-      bcc: Array.from(subscriberEmails),
       react: NewslettersTemplate({
         subject: data.subject,
         body: data.body,
