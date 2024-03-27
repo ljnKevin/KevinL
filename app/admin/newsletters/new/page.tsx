@@ -28,15 +28,7 @@ export default function CreateNewsletterPage() {
       Object.fromEntries(formData.entries())
     )
 
-    const subs = await db
-      .select({
-        email: subscribers.email,
-      })
-      .from(subscribers)
-      .where(lte(subscribers.subscribedAt, new Date()))
-   
-
-    await resend.emails.send({
+          await resend.emails.send({
       subject: data.subject,
       from: emailConfig.from,
       to: env.SITE_NOTIFICATION_EMAIL_TO ?? [],
