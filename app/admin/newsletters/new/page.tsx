@@ -34,11 +34,7 @@ export default function CreateNewsletterPage() {
       })
       .from(subscribers)
       .where(lte(subscribers.subscribedAt, new Date()))
-    const subscriberEmails = new Set([
-      ...subs
-        .filter((sub) => typeof sub.email === 'string' && sub.email.length > 0)
-        .map((sub) => sub.email),
-    ])
+   
 
     await resend.emails.send({
       subject: data.subject,
