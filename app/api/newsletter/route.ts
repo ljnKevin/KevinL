@@ -40,6 +40,16 @@ export async function POST(req: NextRequest) {
       .where(eq(subscribers.email, parsed.email))
 
     if (subscriber) {
+      if (env.NODE_ENV === 'production') {
+        await resend.emails.send({
+          from: emailConfig.from,
+          to: parsed.email,
+          subject: '来自 KevinL 的订阅确认',
+          react: ConfirmSubscriptionEmail({
+            link: url(`confirm/${subscribers.token}`).href,
+          }),
+        })
+      }
       return NextResponse.json({ status: 'success' })
     }
 
@@ -50,7 +60,7 @@ export async function POST(req: NextRequest) {
       await resend.emails.send({
         from: emailConfig.from,
         to: parsed.email,
-        subject: '来自 Cali 的订阅确认',
+        subject: '来自 KevinL 的订阅确认',
         react: ConfirmSubscriptionEmail({
           link: url(`confirm/${token}`).href,
         }),
