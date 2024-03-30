@@ -64,7 +64,7 @@ export async function GET(req: NextRequest, { params }: Params) {
             id: CommentHashids.encode(id),
             parentId: parentId ? CommentHashids.encode(parentId) : null,
           }) as PostIDLessCommentDto
-          )
+      )
     )
   } catch (error) {
     return NextResponse.json({ error }, { status: 400 })
@@ -162,12 +162,14 @@ export async function POST(req: NextRequest, { params }: Params) {
         newId: comments.id,
       })
 
-    return NextResponse.json({
-      ...commentData,
-      id: CommentHashids.encode(newComment.newId),
-      createdAt: new Date(),
-      parentId: hashedParentId,
-    } satisfies CommentDto)
+    if(newComment != null){
+      return NextResponse.json({
+        ...commentData,
+        id: CommentHashids.encode(newComment.newId),
+        createdAt: new Date(),
+        parentId: hashedParentId,
+      } satisfies CommentDto)
+    }
   } catch (error) {
     return NextResponse.json({ error }, { status: 400 })
   }

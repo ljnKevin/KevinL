@@ -85,16 +85,19 @@ export async function POST(req: NextRequest) {
         newId: guestbook.id,
       })
 
-    return NextResponse.json(
-      {
-        ...guestbookData,
-        id: GuestbookHashids.encode(newGuestbook.newId),
-        createdAt: new Date(),
-      } satisfies GuestbookDto,
-      {
-        status: 201,
+      if(newGuestbook != null){
+        return NextResponse.json(
+          {
+            ...guestbookData,
+            id: GuestbookHashids.encode(newGuestbook.newId),
+            createdAt: new Date(),
+          } satisfies GuestbookDto,
+          {
+            status: 201,
+          }
+        )
       }
-    )
+    
   } catch (error) {
     return NextResponse.json({ error }, { status: 400 })
   }
