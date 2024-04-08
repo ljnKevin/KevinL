@@ -7,7 +7,7 @@ import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { media } from 'sanity-plugin-media'
-
+import { markdownSchema } from 'sanity-plugin-markdown';
 import { settingsPlugin, settingsStructure } from '~/sanity/plugins/settings'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
@@ -31,6 +31,7 @@ export default defineConfig({
     settingsPlugin({
       type: settingsType.name,
     }),
+    markdownSchema(),
     media(),
     codeInput(),
   ],
