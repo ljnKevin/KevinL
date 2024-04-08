@@ -81,7 +81,7 @@ export function Headline() {
           platform="github"
         />
         <SocialLink
-          href="ljnkevin1994@gmail.com"
+          href="mailto:ljnkevin1994@gmail.com"
           aria-label="我的邮箱"
           platform="mail"
         />

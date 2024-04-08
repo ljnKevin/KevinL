@@ -39,14 +39,14 @@ export async function POST(req: NextRequest) {
       .from(subscribers)
       .where(eq(subscribers.email, parsed.email))
 
-    if (subscriber) {
+        if (subscriber) {
       if (env.NODE_ENV === 'production') {
         await resend.emails.send({
           from: emailConfig.from,
           to: parsed.email,
           subject: '来自 KevinL 的订阅确认',
           react: ConfirmSubscriptionEmail({
-            link: url(`confirm/${subscribers.token}`).href,
+            link: url(`confirm/${subscriber.token}`).href,
           }),
         })
       }
