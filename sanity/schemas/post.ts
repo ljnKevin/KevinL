@@ -93,7 +93,7 @@ export default defineType({
     defineField({
       name: 'body',
       title: 'Body',
-      type: 'markdown',
+      type: 'blockContent',
     }),
     defineField({
       name: 'readingTime',
