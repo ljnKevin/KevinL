@@ -69,7 +69,7 @@ export const getBlogPostQuery = groq`
         ...
       }
     },
-    "headings": body[length(style) == 2 && string::startsWith(style, "h")],
+    "headings": body[string::startsWith(style, "#")],
     mainImage {
       _ref,
       asset->{
